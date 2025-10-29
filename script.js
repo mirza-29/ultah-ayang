@@ -81,3 +81,13 @@ cards.forEach(card => {
     }
   });
 });
+
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    // Hapus fullscreen dari kartu lain
+    cards.forEach(c => c.classList.remove('fullscreen'));
+    // Tambah fullscreen ke kartu yang diklik
+    card.classList.toggle('fullscreen');
+  });
+});
+
