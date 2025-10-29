@@ -121,6 +121,10 @@ body {
     padding: 10px 25px;
     z-index: 10;
   }
+    .card.aktif {
+    transform: scale(1.2);
+    z-index: 10;
+  }
 
 }
 
@@ -234,4 +238,5 @@ body {
 .hati:nth-child(2) { left: 30%; animation-duration: 6.5s; animation-delay: 1s; }
 .hati:nth-child(3) { left: 50%; animation-duration: 7s; animation-delay: 2s; }
 .hati:nth-child(4) { left: 70%; animation-duration: 5.8s; animation-delay: 0.5s; }
+
 .hati:nth-child(5) { left: 90%; animation-duration: 6s; animation-delay: 1.2s; }
