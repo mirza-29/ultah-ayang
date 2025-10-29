@@ -118,16 +118,38 @@ body {
   }
 
   /* === TOMBOL KE BUKU === */
-  .btn-buku {
-    position: fixed;
-    bottom: 20px;
+ .btn-buku,
+  .btn-back {
+    position: fixed !important;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 14px;
+    background: #ff4d79;
+    color: white;
+    border: none;
+    border-radius: 30px;
     padding: 10px 25px;
-    z-index: 10;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 77, 121, 0.4);
+    transition: all 0.3s ease;
+    z-index: 200; /* agar tidak tertutup kartu fullscreen */
   }
 
+  .btn-buku:hover,
+  .btn-back:hover {
+    background: #ff7da2;
+    transform: translateX(-50%) scale(1.05);
+  }
+
+  /* Saat fullscreen, tombol sembunyikan */
+  .card.fullscreen ~ .btn-buku,
+  .card.fullscreen ~ .btn-back {
+    display: none;
+  }
+
+  
   /* === TAMPILAN FULLSCREEN === */
   .card.fullscreen {
     position: fixed;
@@ -237,6 +259,7 @@ body {
 .hati:nth-child(3) { left: 50%; animation-duration: 7s; animation-delay: 2s; }
 .hati:nth-child(4) { left: 70%; animation-duration: 5.8s; animation-delay: 0.5s; }
 .hati:nth-child(5) { left: 90%; animation-duration: 6s; animation-delay: 1.2s; }
+
 
 
 
