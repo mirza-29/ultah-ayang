@@ -179,7 +179,7 @@ body {
   /* === TULISAN DI FULLSCREEN === */
   .card.fullscreen .info {
     position: absolute;
-    bottom: 60px;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%) rotate(-2deg);
     background: linear-gradient(135deg, #ff8fab, #ffd6e0);
@@ -259,6 +259,7 @@ body {
 .hati:nth-child(3) { left: 50%; animation-duration: 7s; animation-delay: 2s; }
 .hati:nth-child(4) { left: 70%; animation-duration: 5.8s; animation-delay: 0.5s; }
 .hati:nth-child(5) { left: 90%; animation-duration: 6s; animation-delay: 1.2s; }
+
 
 
 
