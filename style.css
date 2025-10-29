@@ -1,0 +1,252 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Pusatkan amplop */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffe0f3, #fff7fb);
+  overflow: hidden;
+}
+
+/* Wadah amplop */
+.amplop {
+  position: relative;
+  width: 260px;
+  height: 190px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* Badan amplop */
+.badan {
+  position: absolute;
+  bottom: 0;
+  width: 260px;
+  height: 190px;
+  background: #fff;
+  border: 2px solid #f0b2c7;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 3;
+  overflow: hidden;
+}
+
+/* Tutup amplop */
+.tutup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 130px solid transparent;
+  border-right: 130px solid transparent;
+  border-top: 85px solid #f5a6bf;
+  transform-origin: top center;
+  transition: transform 0.6s ease-in-out;
+  z-index: 4;
+}
+
+/* Surat di dalam amplop */
+.Surat {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  width: 230px;
+  height: 180px;
+  background: linear-gradient(180deg, #fffdfa, #fff4f8);
+  border: 1px solid #f3c2d3;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  transform-origin: center;
+  transform: translateY(0) scale(1);
+  z-index: 1;
+  transition: all 0.8s ease-in-out;
+  overflow-y: auto;
+}
+
+/* Amplop dibuka */
+.amplop.buka .tutup {
+  transform: rotateX(180deg);
+}
+
+.amplop.buka .Surat {
+  animation: suratKeluar 2.2s forwards ease-in-out;
+}
+
+.amplop.buka ~ .btn-lanjut {
+  opacity: 1;
+  bottom: 50px;
+  pointer-events: auto;
+  transition-delay: 1.2s;
+}
+
+/* Animasi surat keluar */
+@keyframes suratKeluar {
+  0% {
+    transform: translateY(0) scale(1);
+    z-index: 1;
+  }
+  40% {
+    transform: translateY(-160px) scale(1);
+    z-index: 1;
+  }
+  50% {
+    transform: translateY(-160px) scale(1);
+    z-index: 5;
+  }
+  85% {
+    transform: translateY(30px) scale(1.2);
+    z-index: 5;
+  }
+  100% {
+    transform: translateY(20px) scale(1.5);
+    z-index: 5;
+  }
+}
+
+/* Wadah hati */
+.wadah-hati {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Bentuk hati */
+.hati {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background: #ff4d79;
+  transform: rotate(45deg);
+  opacity: 0.8;
+  animation: hatiTerbang 6s infinite ease-in;
+}
+
+.hati::before,
+.hati::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff4d79;
+  border-radius: 50%;
+}
+
+.hati::before {
+  top: -10px;
+  left: 0;
+}
+
+.hati::after {
+  left: -10px;
+  top: 0;
+}
+
+/* Animasi hati terbang */
+@keyframes hatiTerbang {
+  0% {
+    transform: translate(0, 0) rotate(45deg) scale(0.8);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(30px, -400px) rotate(45deg) scale(1.2);
+  }
+  100% {
+    transform: translate(-20px, -800px) rotate(45deg) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Variasi posisi hati */
+.hati:nth-child(1) { left: 10%; animation-duration: 5s; }
+.hati:nth-child(2) { left: 30%; animation-duration: 6.5s; animation-delay: 1s; }
+.hati:nth-child(3) { left: 50%; animation-duration: 7s; animation-delay: 2s; }
+.hati:nth-child(4) { left: 70%; animation-duration: 5.8s; animation-delay: 0.5s; }
+.hati:nth-child(5) { left: 90%; animation-duration: 6s; animation-delay: 1.2s; }
+
+/* Tombol lanjut */
+.btn-lanjut {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: #ff4d79;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.8s ease;
+}
+
+.btn-lanjut:hover {
+  background: #ff7da2;
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* Responsif HP */
+@media (max-width: 480px) {
+  .amplop {
+    width: 180px;
+    height: 130px;
+  }
+
+  .badan {
+    width: 180px;
+    height: 130px;
+  }
+
+  .tutup {
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-top: 60px solid #f5a6bf;
+  }
+
+  .Surat {
+    width: 155px;
+    height: 120px;
+    left: 12px;
+    bottom: 8px;
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .btn-lanjut {
+    font-size: 13px;
+    padding: 10px 20px;
+    bottom: 30px;
+  }
+}
+
+/* 🌈 Efek transisi antar halaman */
+.halaman {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+.halaman.tampil {
+  opacity: 1;
+  pointer-events: auto;
+}

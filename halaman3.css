@@ -1,0 +1,190 @@
+/* === HALAMAN 3: Buku Kenangan === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top, #ffb6c1, #fff);
+  margin: 0;
+  overflow-x: hidden;
+}
+#halaman3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 50px;
+  height: 100vh;
+  background: radial-gradient(circle at top, #ffb6c1, #fff);
+}
+
+/* --- BUKU --- */
+.book {
+  position: relative;
+  width: 90%;
+  max-width: 950px;
+  height: 520px;
+  perspective: 2500px;
+  transform-style: preserve-3d;
+  margin: 0 auto;
+}
+
+
+/* --- HALAMAN --- */
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fffdfa;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 60px;
+  backface-visibility: hidden;
+  transform-origin: left center;
+  transition: transform 1s ease, box-shadow 0.5s ease;
+  font-family: "Dancing Script", cursive;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.page h2 {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 15px;
+  color: #ff4d79;
+  font-size: 28px;
+}
+
+.page p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.page:nth-child(1) {
+  z-index: 3;
+  background: #fff6fa;
+}
+.page:nth-child(2) {
+  z-index: 2;
+  background: #fff2f7;
+}
+.page:nth-child(3) {
+  z-index: 1;
+  background: #ffebf2;
+}
+
+.page.flipped {
+  transform: rotateY(-180deg);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.page:not(.flipped):hover {
+  box-shadow: 0 10px 40px rgba(255, 77, 121, 0.25);
+  transform: rotateY(-3deg);
+}
+
+/* --- TOMBOL NAVIGASI --- */
+.controls {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  z-index: 10;
+}
+
+.controls button {
+  background: linear-gradient(135deg, #ff7aa2, #ff4d79);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 28px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.controls button:hover {
+  background: linear-gradient(135deg, #ff9ab7, #ff6b97);
+  transform: scale(1.08);
+}
+
+.controls button:active {
+  transform: scale(0.96);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.page-img {
+  width: 70%;
+  max-width: 400px;
+  border-radius: 15px;
+  height: 250px;           /* tambahkan tinggi tetap */
+  object-fit: cover;       /* potong bagian luar agar pas di kotak */
+  object-position: center; /* fokus potongan di tengah */
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.page-img:hover {
+  transform: scale(1.05);
+}
+
+
+/* --- RESPONSIF --- */
+@media (max-width: 768px) {
+  .book {
+    width: 95%;
+    height: 450px;
+    perspective: 2000px;
+  }
+
+  .page {
+    padding: 30px;
+  }
+
+  .page h2 {
+    font-size: 22px;
+  }
+
+  .page p {
+    font-size: 16px;
+  }
+
+  .controls {
+    bottom: 20px;
+    gap: 10px;
+  }
+
+  .controls button {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+
+  .page-img {
+  width: 90%;           /* lebih lebar di layar kecil */
+  max-width: 300px;     /* batasi biar tidak terlalu besar */
+  margin-top: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .page-img:hover {
+    transform: scale(1.02); /* efek hover lebih lembut di HP */
+  }
+}
+
+
