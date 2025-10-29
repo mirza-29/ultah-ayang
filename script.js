@@ -71,12 +71,13 @@ btnKeBuku.addEventListener("click", () => {
   showPage(currentPage);
 
     // Untuk setiap kartu, pasang event listener
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      // Hapus kelas aktif dari semua kartu dulu
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    if (card.classList.contains('aktif')) {
+      card.classList.remove('aktif');
+    } else {
       cards.forEach(c => c.classList.remove('aktif'));
-
-      // Lalu tambahkan kelas aktif ke kartu yang diklik
       card.classList.add('aktif');
-    });
+    }
   });
+});
