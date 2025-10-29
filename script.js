@@ -72,22 +72,15 @@ btnKeBuku.addEventListener("click", () => {
 
     // Untuk setiap kartu, pasang event listener
 cards.forEach(card => {
-  card.addEventListener('click', () => {
-    if (card.classList.contains('aktif')) {
-      card.classList.remove('aktif');
-    } else {
-      cards.forEach(c => c.classList.remove('aktif'));
-      card.classList.add('aktif');
+  card.addEventListener("click", () => {
+    const isFullscreen = card.classList.contains("fullscreen");
+    // Tutup semua kartu lain
+    cards.forEach(c => c.classList.remove("fullscreen"));
+    // Jika sebelumnya belum fullscreen, aktifkan
+    if (!isFullscreen) {
+      card.classList.add("fullscreen");
     }
   });
 });
 
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    // Hapus fullscreen dari kartu lain
-    cards.forEach(c => c.classList.remove('fullscreen'));
-    // Tambah fullscreen ke kartu yang diklik
-    card.classList.toggle('fullscreen');
-  });
-});
 
