@@ -101,11 +101,12 @@ body {
 }
 
 /* Tombol ke Buku Kenangan */
+/* === TOMBOL KE BUKU === */
 .btn-buku {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%) scale(0.95);
+  position: fixed;              /* Selalu menempel di bawah layar */
+  bottom: 30px;                 /* Jarak dari bawah layar */
+  left: 50%;                    /* Tengah secara horizontal */
+  transform: translateX(-50%);  /* Tepat di tengah */
   background: #ff4d79;
   color: #fff;
   border: none;
@@ -114,15 +115,15 @@ body {
   font-size: 15px;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
-  opacity: 1;
-  pointer-events: auto;
   transition: all 0.3s ease;
+  z-index: 10;                  /* Supaya tidak ketutupan elemen lain */
 }
 
 .btn-buku:hover {
-  background-color: #ff4f96;
-  transform: translateX(-50%) scale(1);
+  background-color: #ff7da2;
+  transform: translateX(-50%) scale(1.05);
 }
+
 
 
 /* === MODE HP === */
@@ -283,6 +284,7 @@ body {
 .hati:nth-child(3) { left: 50%; animation-duration: 7s; animation-delay: 2s; }
 .hati:nth-child(4) { left: 70%; animation-duration: 5.8s; animation-delay: 0.5s; }
 .hati:nth-child(5) { left: 90%; animation-duration: 6s; animation-delay: 1.2s; }
+
 
 
 
